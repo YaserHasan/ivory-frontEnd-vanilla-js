@@ -1,0 +1,80 @@
+/*
+====================================
+    Categories section
+====================================
+*/
+
+/* === Grid === */
+#categories-section {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px 20px;
+}
+
+/* === category item === */
+.category {
+    padding: 1rem;
+    border-radius: 15px;
+    background-color: #EDF1F4;
+    text-align: center;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.category img {
+    max-height: 80px;
+    margin-bottom: 0.5rem;
+}
+
+.category:hover {
+    background-color: var(--primary-color);
+}
+
+.category:hover > a > h3 {
+    color: white;
+}
+
+/*
+====================================
+    Featured Products section
+====================================
+*/
+
+#featured-products-section {
+    margin-top: 4rem;
+}
+
+#featured-products-section h1 {
+    margin-bottom: 2rem;
+}
+
+/* === Grid === */
+#featured-products-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px 25px;
+}
+
+
+/*
+====================================
+    Most Popular Products section
+====================================
+*/
+
+#most-popular-products-section {
+    margin-top: 4rem;
+}
+
+#most-popular-products-section h1 {
+    margin-bottom: 2rem;
+}
+
+/* === Grid === */
+#most-popular-products-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px 25px;
+}
+
+

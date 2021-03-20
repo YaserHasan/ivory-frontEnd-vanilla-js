@@ -114,19 +114,7 @@ a:hover,
 a:focus,
 a:active {
     text-decoration: none;
-}
-
-a {
-    transition: 300ms;
-}
-
-a,
-a:focus {
     color: var(--text-color);
-}
-
-a:hover {
-    color: var(--accent-color);
 }
 
 /*
@@ -147,10 +135,12 @@ a:hover {
 }
 
 .card {
+    padding: 1rem;
     border: solid 1px #9B9B9B;
 }
 
 .card-thick {
+    padding: 1rem;
     border: solid 3px #9B9B9B;
 }
 
@@ -174,6 +164,11 @@ nav .topHeader {
 
 nav .topHeader a {
     display: inline-block;
+    transition: 300ms;
+}
+
+nav .topHeader a:hover {
+    color: var(--accent-color);
 }
 
 nav .topHeader h5:first-child {
@@ -262,6 +257,7 @@ nav .actions a:first-child {
 */
 
 footer {
+    margin-top: 4rem;
     height: 80px;
     width: 100%;
 }
@@ -274,5 +270,29 @@ footer div {
     align-items: center;
 }
 
+/*
+====================================
+    Vertical Product View
+====================================
+*/
 
+.vertical-product-view {
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.vertical-product-view:hover {
+    border-color: var(--accent-color);
+    transform: scale(1.03);
+}
+
+.vertical-product-view p {
+    margin: 1.5rem 0;
+}
+
+.vertical-product-view img {
+    max-height: 150px;
+}
 
