@@ -144,6 +144,86 @@ a:active {
     border: solid 3px #9B9B9B;
 }
 
+/* === drop down link === */
+.drop-down-link {
+    height: 100%;
+    position: relative;
+}
+
+.drop-down-link a {
+    margin: 0 !important;
+}
+
+.drop-down-link:hover > .drop-down-items {
+    display: block;
+}
+
+.drop-down-items::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.drop-down-items {
+    position: absolute;
+    width: 270px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 10px 50px rgb(0 0 0 / 15%);
+    list-style: none;
+    border-radius: 8px;
+    display: none;
+    animation: fadeInFromTop 300ms;
+}
+
+.drop-down-items li {
+    transition: 300ms;
+}
+
+.drop-down-items li a {
+    display: block;
+    padding: 1.5rem;
+    font-size: 2rem;
+    font-weight: 500;
+    transition: 300ms;
+}
+
+.drop-down-items li:hover {
+    background-color: rgba(13, 12, 34, 0.03);
+}
+
+.drop-down-items li:hover > a {
+    color: var(--accent-color);
+}
+
+/*
+====================================
+    Animations
+====================================
+*/
+
+@keyframes fadeInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
 /*
 ====================================
     Nav Bar
@@ -171,7 +251,7 @@ nav .topHeader a:hover {
     color: var(--accent-color);
 }
 
-nav .topHeader h5:first-child {
+nav .topHeader a:first-child {
     margin-right: 2rem;
 }
 
@@ -235,18 +315,32 @@ nav .input-with-icon .icon:hover {
 }
 
 /* === Actions === */
-nav .actions i {
+nav .actions {
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+/* to center the icon vertically */
+nav .action-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .action-link i {
     color: var(--primary-color);
     font-size: 3.2rem;
     cursor: pointer;
     transition: 300ms;
 }
 
-nav .actions i:hover {
+nav .action-link i:hover {
     filter: brightness(1.5);
 }
 
-nav .actions a:first-child {
+nav .actions .action-link:first-child {
     margin-right: 4rem;
 }
 

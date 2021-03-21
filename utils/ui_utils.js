@@ -19,8 +19,14 @@ class UiUtils {
                 </div>
 
                 <div class="actions">
-                    <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                    <a href="#"><i class="fas fa-user"></i></a>  
+                    <a href="#" class="action-link"><i class="fas fa-shopping-cart"></i></a>
+                    <div class="drop-down-link">
+                        <a href="#" class="action-link"><i class="fas fa-user"></i></a>
+                        <ul class="drop-down-items">
+                            <li><a href="#">My orders</a></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="divider"></div>
