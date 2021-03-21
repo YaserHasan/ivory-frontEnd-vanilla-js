@@ -9,7 +9,9 @@ class UiUtils {
             <div class="divider"></div>
 
             <div class="container main-nav">
-                <a href="#"><img src="assets/images/logo.png" alt="Logo"></a>
+                <a href="${FormatUtils.getRelativePath('index.html')}">
+                    <img src="${FormatUtils.getRelativePath('assets/images/logo.png')}" alt="Logo">
+                </a>
 
                 <div class="input-with-icon">
                     <input type="text" placeholder="Search">
@@ -43,5 +45,55 @@ class UiUtils {
             </div>
         `;
         return footer;
+    }
+
+    static buildVerticalProductView(product) {
+        const productElement = document.createElement('div');
+        productElement.classList.add('card');
+        productElement.classList.add('vertical-product-view');
+        productElement.innerHTML = `
+            <a href="#">
+                <input type="hidden" id="product-id" value="${product.id}">
+                <img src=${product.imageURL} alt="Product">
+                <p>${product.name}</p>
+                <h2>${product.price}&#8362;</h2>
+            </a>
+        `;
+        return productElement;
+    }
+
+    static updatePageTitle(title, hideSiteName) {
+        const titleElement = document.querySelector('head title');
+        if (hideSiteName)
+            titleElement.textContent = title;
+        else
+            titleElement.textContent = `Ivory Computers and Phones | ${title}`;
+    }
+
+    static buildLoadingView() {
+        const loadingViewElement = document.createElement('div');
+        loadingViewElement.classList.add('loading-view');
+        loadingViewElement.innerHTML = `
+            <lottie-player src="${FormatUtils.getRelativePath('assets/ui/loading_spinner.json')}"background="transparent"  speed="1" loop  autoplay>
+            </lottie-player>
+        `;
+        return loadingViewElement;
+    }
+
+    static showLoadingView() {
+        const loadingView = document.querySelector('.loading-view');
+        loadingView.style.opacity = 1;
+        document.body.style.overflow = "hidden";
+        loadingView.style.display = 'flex';
+    }
+
+    static hideLoadingView() {
+        const loadingView = document.querySelector('.loading-view');
+        loadingView.style.opacity = 0;
+        // set Timeout to show animation before hiding
+        setTimeout(() => {
+            document.body.style.overflow = "auto";
+            loadingView.style.display = 'none';
+        }, 300)
     }
 }

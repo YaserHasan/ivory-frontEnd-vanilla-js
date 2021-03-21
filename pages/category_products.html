@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+        <!-- =============
+             Style
+        ============== -->
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/868720a2ea.js" crossorigin="anonymous"></script>
+        <!-- Lottie Files -->
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <!-- CSS -->
+        <link rel="stylesheet" href="../css/baseStyle.css">
+        <link rel="stylesheet" href="../css/category_products.css">
+        <!-- =============
+            JavaScript
+        ============== -->
+        <script defer src="../constants.js"></script>
+        <script defer src="../utils/format_utils.js"></script>
+        <script defer src="../utils/ui_utils.js"></script>
+        <script defer src="../services/products_service.js"></script>
+        <script defer src="../js/category_products.js"></script>
+    </head>
+    <body>
+        <div id="loading-view-placeholder"></div>
+
+        <div id="nav-placeholder"></div>
+        
+        <main class="container" id="category-products-section">
+            <h1 id="category-name"></h1>
+            <div class="vertical-product-view-grid" id="category-products-grid">
+            </div>
+        </main>
+
+        <div id="footer-placeholder"></div>
+    </body>
+</html>

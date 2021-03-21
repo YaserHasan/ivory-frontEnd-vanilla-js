@@ -1,7 +1,20 @@
 // build navbar
 document.querySelector('#nav-placeholder').replaceWith(UiUtils.buildNavBar());
-// footer
+
+// build footer
 document.querySelector('#footer-placeholder').replaceWith(UiUtils.buildFooter());
+
+// build loading view
+document.querySelector('#loading-view-placeholder').replaceWith(UiUtils.buildLoadingView());
+
+async function main() {
+    UiUtils.showLoadingView();
+    await buildCategories();
+    await buildFeaturedProducts();
+    await buildMostPopularProducts();
+    UiUtils.hideLoadingView();
+}
+main();
 
 // build categories
 async function buildCategories() {
@@ -11,7 +24,7 @@ async function buildCategories() {
         const categoryElement = document.createElement('div');
         categoryElement.classList.add('category');
         categoryElement.innerHTML = `
-            <a href="#">
+            <a href="pages/category_products.html?ID=${category.id}">
                 <input type="hidden" id="category-id" value="${category.id}">
                 <img src="${category.imageURL}" alt="category">
                 <h3>${category.name}</h3>
@@ -26,18 +39,7 @@ async function buildFeaturedProducts() {
     const featuredProductsGrid = document.querySelector('#featured-products-grid');
     const featuredProducts = await ProductsService.getFeaturedProducts();
     featuredProducts.forEach((product) => {
-        const productElement = document.createElement('div');
-        productElement.classList.add('card');
-        productElement.classList.add('vertical-product-view');
-        productElement.innerHTML = `
-            <a href="#">
-                <input type="hidden" id="category-id" value="${product.id}">
-                <img src=${product.imageURL} alt="Product">
-                <p>${product.name}</p>
-                <h2>${product.price}&#8362;</h2>
-            </a>
-        `;
-        featuredProductsGrid.append(productElement);
+        featuredProductsGrid.append(UiUtils.buildVerticalProductView(product));
     });
 }
 
@@ -46,25 +48,7 @@ async function buildMostPopularProducts() {
     const mostPopularProductsGrid = document.querySelector('#most-popular-products-grid');
     const mostPopularProducts = await ProductsService.getMostPopularProducts();
     mostPopularProducts.forEach((product) => {
-        const productElement = document.createElement('div');
-        productElement.classList.add('card');
-        productElement.classList.add('vertical-product-view');
-        productElement.innerHTML = `
-            <a href="#">
-                <input type="hidden" id="category-id" value="${product.id}">
-                <img src=${product.imageURL} alt="Product">
-                <p>${product.name}</p>
-                <h2>${product.price}&#8362;</h2>
-            </a>
-        `;
-        mostPopularProductsGrid.append(productElement);
+        mostPopularProductsGrid.append(UiUtils.buildVerticalProductView(product));
     });
 }
-
-
-
-
-buildCategories();
-buildFeaturedProducts();
-buildMostPopularProducts();
 

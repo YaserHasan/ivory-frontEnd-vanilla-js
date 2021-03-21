@@ -4,15 +4,30 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ivory Computers and Phones</title>
+        <!-- =============
+             Style
+        ============== -->
+        <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/868720a2ea.js" crossorigin="anonymous"></script>
+        <!-- Lottie Files -->
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <!-- CSS -->
         <link rel="stylesheet" href="css/baseStyle.css">
         <link rel="stylesheet" href="css/index.css">
+        <!-- =============
+            JavaScript
+        ============== -->
+        <script defer src="constants.js"></script>
+        <script defer src="utils/format_utils.js"></script>
         <script defer src="utils/ui_utils.js"></script>
         <script defer src="services/products_service.js"></script>
         <script defer src="js/index.js"></script>
-        <title>Ivory | Computers and Phones</title>
     </head>
     <body>
+        
+        <div id="loading-view-placeholder"></div>
+        
         <div id="nav-placeholder"></div>
         
         <main class="container" id="categories-section">
@@ -20,15 +35,13 @@
 
         <section class="container" id="featured-products-section">
             <h1>Featured Products</h1>
-            <div id="featured-products-grid">
-               
+            <div class="vertical-product-view-grid" id="featured-products-grid">    
             </div>
         </section>
 
         <section class="container" id="most-popular-products-section">
             <h1>Most popular</h1>
-            <div id="most-popular-products-grid">
-               
+            <div class="vertical-product-view-grid" id="most-popular-products-grid">     
             </div>
         </section>
 

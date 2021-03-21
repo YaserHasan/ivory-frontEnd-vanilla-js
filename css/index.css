@@ -48,13 +48,6 @@
     margin-bottom: 2rem;
 }
 
-/* === Grid === */
-#featured-products-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 25px 25px;
-}
-
 
 /*
 ====================================
@@ -69,12 +62,3 @@
 #most-popular-products-section h1 {
     margin-bottom: 2rem;
 }
-
-/* === Grid === */
-#most-popular-products-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 25px 25px;
-}
-
-
