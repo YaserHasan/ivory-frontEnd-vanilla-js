@@ -11,6 +11,7 @@
     --primary-color: #293783;
     --accent-color: #F79422;
     --text-color: black;
+    --subtitle-color: #757575;
     --divider-color: #DDDDDD;
     --card-border-color: #9B9B9B;
 }
@@ -126,6 +127,33 @@ a:active {
 .container {
     margin: 0 auto;
     max-width: 1100px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+/* === Buttons === */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 1rem 4rem;
+    font-size: 2.6rem;
+    font-weight: 500;
+    border-radius: 7px;
+    color: white;
+    background-color: var(--accent-color);
+    border: none;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.btn:hover {
+    filter: brightness(1.2);
+}
+
+.btn-small {
+    font-size: 2rem;
 }
 
 .divider {

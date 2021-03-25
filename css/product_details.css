@@ -1,0 +1,60 @@
+/*
+====================================
+    Product Overview section
+====================================
+*/
+
+#product-overview-section {
+    display: flex;
+    justify-content: start;
+}
+
+#product-overview-section #product-image {
+    flex: 4;
+    margin-right: 2rem;
+    object-fit: scale-down;
+}
+
+#text-info {
+    flex: 6;
+}
+
+
+#text-info #product-description {
+    margin: 3rem 0;
+    color: var(--subtitle-color);
+}
+
+#text-info button {
+    margin-top: 5rem;
+}
+
+/*
+====================================
+    Product Specs Section
+====================================
+*/
+
+#product-specs-section {
+    margin-top: 4rem;
+}
+
+#product-specs-section #product-specs-table {
+    width: 100%;
+    --border: #BCBCBC solid 1px;
+    border-collapse: collapse;
+    background-color: #F9F9F9;
+    border-top: var(--border);
+    border-left: var(--border);
+    border-right: var(--border);
+}
+
+#product-specs-section #product-specs-table td {
+    width: 70%;
+    padding: 1rem;
+    border-bottom: var(--border);
+}
+
+#product-specs-section #product-specs-table td:first-child {
+    width: 30%;
+}

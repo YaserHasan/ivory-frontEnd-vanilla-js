@@ -29,10 +29,21 @@
 
         <div id="header-placeholder"></div>
         
-        <main class="container" id="category-products-section">
-            <h1 id="category-name"></h1>
-            <div class="vertical-product-view-grid" id="category-products-grid">
-            </div>
+        <main class="container">
+            <input id="product-id" type="hidden" value="productID">
+            <section id="product-overview-section">
+                <img id="product-image" class="hidden">
+                <div id="text-info">
+                    <h1 id="product-name"></h1>
+                    <p id="product-description"></p>
+                    <h2 id="product-price"></h2>
+                    <button id="add-to-cart-btn" class="btn hidden">ADD TO CART</button>
+                </div>
+            </section>
+
+            <section id="product-specs-section">
+                <table id="product-specs-table"></table>
+            </section>
         </main>
 
         <div id="footer-placeholder"></div>

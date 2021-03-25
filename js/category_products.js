@@ -14,11 +14,6 @@ async function main() {
 }
 main();
 
-function updateCategoryName(categoryName) {
-    const categoryNameH1 = document.querySelector('#category-name');
-    categoryNameH1.textContent = categoryName;
-}
-
 // build category products
 async function buildCategoryProducts() {
     // get category ID
@@ -30,4 +25,9 @@ async function buildCategoryProducts() {
     categoryData.categoryProducts.forEach((product) => {
         categoryProductsGrid.append(UiUtils.buildVerticalProductView(product));
     });
+}
+
+function updateCategoryName(categoryName) {
+    const categoryNameH1 = document.querySelector('#category-name');
+    categoryNameH1.textContent = categoryName;
 }

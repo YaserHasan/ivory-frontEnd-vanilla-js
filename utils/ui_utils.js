@@ -52,7 +52,7 @@ class UiUtils {
         productElement.classList.add('card');
         productElement.classList.add('vertical-product-view');
         productElement.innerHTML = `
-            <a href="#">
+            <a href="${FormatUtils.getRelativePath(`./pages/product_details.html?ID=${product.id}`)}">
                 <input type="hidden" id="product-id" value="${product.id}">
                 <img src=${product.imageURL} alt="Product">
                 <p>${product.name}</p>
