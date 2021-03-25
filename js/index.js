@@ -1,5 +1,5 @@
-// build navbar
-document.querySelector('#nav-placeholder').replaceWith(UiUtils.buildNavBar());
+// build header
+document.querySelector('#header-placeholder').replaceWith(UiUtils.buildHeader());
 
 // build footer
 document.querySelector('#footer-placeholder').replaceWith(UiUtils.buildFooter());

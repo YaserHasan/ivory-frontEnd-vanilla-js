@@ -1,14 +1,14 @@
 class UiUtils {
-    static buildNavBar() {
-        const navBar = document.createElement('nav');
-        navBar.innerHTML = `
+    static buildHeader() {
+        const header = document.createElement('header');
+        header.innerHTML = `
             <div class="container topHeader">
                 <a href="#"><h5>about Ivory</h5></a>
                 <a href="#"><h5>contact us</h5></a>
             </div>
             <div class="divider"></div>
 
-            <div class="container main-nav">
+            <div class="container main-header">
                 <a href="${FormatUtils.getRelativePath('index.html')}">
                     <img src="${FormatUtils.getRelativePath('assets/images/logo.png')}" alt="Logo">
                 </a>
@@ -20,7 +20,7 @@ class UiUtils {
                     </div>
                 </div>
 
-                <div class="actions">
+                <nav>
                     <a href="#" class="action-link"><i class="fas fa-shopping-cart"></i></a>
                     <div class="drop-down-link">
                         <a href="#" class="action-link"><i class="fas fa-user"></i></a>
@@ -29,11 +29,11 @@ class UiUtils {
                             <li><a href="#">Logout</a></li>
                         </ul>
                     </div>
-                </div>
+                </nav>
             </div>
             <div class="divider"></div>
         `;
-        return navBar;
+        return header;
     }
 
     static buildFooter() {

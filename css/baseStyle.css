@@ -262,49 +262,48 @@ a:active {
 
 /*
 ====================================
-    Nav Bar
+    Header
 ====================================
 */
 
-nav {
+header {
     margin-bottom: 4rem;
 }
 
 /* === top header === */
-nav .topHeader {
+header .topHeader {
     padding: 1rem 0;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-nav .topHeader a {
+header .topHeader a {
     display: inline-block;
     transition: 300ms;
 }
 
-nav .topHeader a:hover {
+header .topHeader a:hover {
     color: var(--accent-color);
 }
 
-nav .topHeader a:first-child {
+header .topHeader a:first-child {
     margin-right: 2rem;
 }
 
 /* === main nav === */
 
-
 /* === logo === */
-nav .main-nav a {
+header .main-header a {
     height: 100%;
 }
 
-nav .main-nav img {
+header .main-header img {
     position: relative;
     height: 100%;
 }
 
-nav .main-nav {
+header .main-header {
     height: 80px;
     padding: 1rem 0;
     display: flex;
@@ -313,23 +312,23 @@ nav .main-nav {
 }
 
 /* === Input with icon === */
-nav .input-with-icon {
+header .input-with-icon {
     width: 100%;
     margin: 0 1rem;
     max-width: 500px;
 }
 
-nav .input-with-icon {
+header .input-with-icon {
     display: flex;
     justify-content: center;
 }
 
-nav .input-with-icon input {
+header .input-with-icon input {
     width: 90%;
     border-radius: 10px 0 0 10px;
 }
 
-nav .input-with-icon .icon {
+header .input-with-icon .icon {
     cursor: pointer;
     width: 10%;
     background-color: var(--primary-color);
@@ -341,7 +340,7 @@ nav .input-with-icon .icon {
     transition: 300ms;
 }
 
-nav .input-with-icon .icon:hover {
+header .input-with-icon .icon:hover {
     filter: brightness(1.5);
 }
 
@@ -351,7 +350,7 @@ nav .input-with-icon .icon:hover {
 }
 
 /* === Actions === */
-nav .actions {
+nav {
     height: 100%;
     display: flex;
     justify-content: end;
@@ -376,7 +375,7 @@ nav .action-link i:hover {
     filter: brightness(1.5);
 }
 
-nav .actions .action-link:first-child {
+nav .action-link:first-child {
     margin-right: 4rem;
 }
 
