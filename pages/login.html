@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ivory Computers and Phones | Login</title>
+        <!-- =============
+             Style
+        ============== -->
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/868720a2ea.js" crossorigin="anonymous"></script>
+        <!-- Lottie Files -->
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <!-- CSS -->
+        <link rel="stylesheet" href="../css/baseStyle.css">
+        <link rel="stylesheet" href="../css/auth.css">
+        <!-- =============
+            JavaScript
+        ============== -->
+        <script defer src="../constants.js"></script>
+        <script defer src="../utils/format_utils.js"></script>
+        <script defer src="../utils/ui_utils.js"></script>
+        <script defer src="../services/auth_service.js"></script>
+        <script defer src="../js/login.js"></script>
+    </head>
+    <body>
+        <div id="loading-view-placeholder"></div>
+
+        <div id="header-placeholder"></div>
+        
+        <main class="card-thick card-light-color">
+            <nav id="auth-nav">
+                <a id="nav-login" class="selected" href="#"><h4>LOGIN</h4></a>
+                <a id="nav-register" href="./register.html"><h4>Register</h4></a>
+            </nav>
+
+            <form>
+                <h1 id="title">LOGIN</h1>
+
+                <label for="email-input">Email</label>
+                <input id="email-input" type="email" placeholder="Email">
+
+                <label for="password-input">Password</label>
+                <input id="password-input" type="password" placeholder="Password">
+
+                <p id="message" class="message error-message"></p>
+
+                <button class="btn btn-small">LOGIN</button>
+            </form>
+        </main>
+
+        <div id="footer-placeholder"></div>
+    </body>
+</html>

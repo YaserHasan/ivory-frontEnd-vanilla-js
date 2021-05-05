@@ -14,6 +14,8 @@
     --subtitle-color: #757575;
     --divider-color: #DDDDDD;
     --card-border-color: #9B9B9B;
+    --success-color: #28a745;
+    --error-color: #dc3545;
 }
 
 html {
@@ -139,7 +141,7 @@ a:active {
     width: 100%;
     padding: 1rem 4rem;
     font-size: 2.6rem;
-    font-weight: 500;
+    font-weight: 700;
     border-radius: 7px;
     color: white;
     background-color: var(--accent-color);
@@ -164,12 +166,32 @@ a:active {
 
 .card {
     padding: 1rem;
-    border: solid 1px #9B9B9B;
+    border: solid 1px var(--card-border-color);
 }
 
 .card-thick {
     padding: 1rem;
-    border: solid 3px #9B9B9B;
+    border: solid 3px var(--card-border-color);
+}
+
+.card-light-color {
+    border-color: var(--divider-color);
+}
+
+/* === message === */
+.message {
+    font-size: 2.2rem;
+    font-weight: 500;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.message.success-message {
+    color: var(--success-color);
+}
+
+.message.error-message {
+    color: var(--error-color);
 }
 
 /* === loading view === */

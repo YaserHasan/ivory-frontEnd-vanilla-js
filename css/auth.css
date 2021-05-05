@@ -1,0 +1,60 @@
+main {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 !important;
+}
+
+form {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+#auth-nav {
+    position: relative;
+    height: 5rem;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: var(--divider-color) solid 2px;
+}
+
+#auth-nav .selected {
+    color: var(--accent-color);
+}
+
+#auth-nav .selected::after {
+    position: absolute;
+    bottom: -2px;
+    content: '';
+    width: 50%;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+#nav-login.selected::after {
+    left: 0;
+    right: auto;
+}
+
+#nav-register.selected::after {
+    right: 0;
+    left: auto;
+}
+
+#title {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+label {
+    margin-bottom: 1rem;
+}
+
+form input {
+    margin-bottom: 1.5rem;
+}
+
+#message {
+    margin-bottom: 1rem;
+}
