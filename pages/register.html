@@ -20,8 +20,9 @@
         ============== -->
         <script defer src="../constants.js"></script>
         <script defer src="../utils/format_utils.js"></script>
-        <script defer src="../utils/ui_utils.js"></script>
         <script defer src="../services/auth_service.js"></script>
+        <script defer src="../utils/ui_utils.js"></script>
+        <script defer src="../utils/build_shared_layout.js"></script>
         <script defer src="../js/register.js"></script>
     </head>
     <body>
@@ -50,7 +51,7 @@
                 <label for="confirm-password-input">Confirm Password</label>
                 <input id="confirm-password-input" type="password" placeholder="Confirm Password">
 
-                <p id="message" class="message error-message">Invalid Email address</p>
+                <p id="message" class="message"></p>
 
                 <button class="btn btn-small">Register</button>
             </form>

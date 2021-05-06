@@ -20,8 +20,9 @@
         ============== -->
         <script defer src="../constants.js"></script>
         <script defer src="../utils/format_utils.js"></script>
-        <script defer src="../utils/ui_utils.js"></script>
         <script defer src="../services/auth_service.js"></script>
+        <script defer src="../utils/ui_utils.js"></script>
+        <script defer src="../utils/build_shared_layout.js"></script>
         <script defer src="../js/login.js"></script>
     </head>
     <body>
@@ -44,7 +45,7 @@
                 <label for="password-input">Password</label>
                 <input id="password-input" type="password" placeholder="Password">
 
-                <p id="message" class="message error-message"></p>
+                <p id="message" class="message"></p>
 
                 <button class="btn btn-small">LOGIN</button>
             </form>

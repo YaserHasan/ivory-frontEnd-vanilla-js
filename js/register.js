@@ -1,15 +1,28 @@
-// build Header
-document.querySelector('#header-placeholder').replaceWith(UiUtils.buildHeader());
+// navigate to hmepage if user already logged in
+if (sessionStorage.getItem('authorized') === 'true')
+    window.location.replace('../index.html');
 
-// build footer
-document.querySelector('#footer-placeholder').replaceWith(UiUtils.buildFooter());
+const messageElement = document.querySelector('#message');
 
-// build loading view
-document.querySelector('#loading-view-placeholder').replaceWith(UiUtils.buildLoadingView());
+document.querySelector('form button').addEventListener('click', async e => {
+    e.preventDefault();
+    const name = document.querySelector('#name-input').value;
+    const email = document.querySelector('#email-input').value;
+    const password = document.querySelector('#password-input').value;
+    const confirmPassword = document.querySelector('#confirm-password-input').value;
+    
+    UiUtils.hideMessage(messageElement);
+    if (password !== confirmPassword)
+        return UiUtils.buildErrorMessage(messageElement, 'Passwords doesn\'t match');
 
-async function main() {
-    //UiUtils.showLoadingView();
-    //await buildCategoryProducts();
-    //UiUtils.hideLoadingView();
-}
-main();
+    UiUtils.showLoadingView();
+    const response = await AuthService.register(name, email, password);
+    UiUtils.hideLoadingView();
+
+    if (response.success) {
+        UiUtils.buildSuccessMessage(messageElement, response.message);
+    }
+    else {
+        UiUtils.buildErrorMessage(messageElement, response.message);
+    }
+});

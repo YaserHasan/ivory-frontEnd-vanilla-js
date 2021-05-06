@@ -1,5 +1,29 @@
 class UiUtils {
     static buildHeader() {
+        const isLoggedIn = sessionStorage.getItem('authorized');
+        function buildAccountDropDown() {
+            if (isLoggedIn === 'true')
+                return `
+                    <li><a href="#">My orders</a></li>
+                    <li><a onclick="(async () => {
+                        UiUtils.showLoadingView();
+                        await AuthService.logout();
+                        UiUtils.hideLoadingView();
+                        location.reload();
+                    })()">Logout</a></li>
+                `
+            return `
+                <li><a href="${FormatUtils.getRelativePath('./pages/login.html')}">Login</a></li>
+                <li><a href="${FormatUtils.getRelativePath('./pages/register.html')}">Register</a></li>
+            `
+        }
+
+        function buildCartHREF() {
+            if (isLoggedIn === 'true')
+                return "#";
+            return FormatUtils.getRelativePath('pages/login.html');
+        }
+
         const header = document.createElement('header');
         header.innerHTML = `
             <div class="container topHeader">
@@ -21,12 +45,11 @@ class UiUtils {
                 </div>
 
                 <nav>
-                    <a href="#" class="action-link"><i class="fas fa-shopping-cart"></i></a>
+                    <a href="${buildCartHREF()}" class="action-link"><i class="fas fa-shopping-cart"></i></a>
                     <div class="drop-down-link">
                         <a href="#" class="action-link"><i class="fas fa-user"></i></a>
                         <ul class="drop-down-items">
-                            <li><a href="#">My orders</a></li>
-                            <li><a href="#">Logout</a></li>
+                            ${buildAccountDropDown()}
                         </ul>
                     </div>
                 </nav>
@@ -95,5 +118,22 @@ class UiUtils {
             document.body.style.overflow = "auto";
             loadingView.style.display = 'none';
         }, 300)
+    }
+
+    static buildSuccessMessage(messageElement, text) {
+        messageElement.classList.remove('error-message');
+        messageElement.classList.add('success-message');
+        messageElement.textContent = text;
+    }
+
+    static buildErrorMessage(messageElement, text) {
+        messageElement.classList.remove('success-message');
+        messageElement.classList.add('error-message');
+        messageElement.textContent = text;
+    }
+
+    static hideMessage(messageElement) {
+        messageElement.classList = ['message'];
+        messageElement.textContent = '';
     }
 }

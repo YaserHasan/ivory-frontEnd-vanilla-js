@@ -1,15 +1,23 @@
-// build Header
-document.querySelector('#header-placeholder').replaceWith(UiUtils.buildHeader());
+// navigate to hmepage if user already logged in
+if (sessionStorage.getItem('authorized') === 'true')
+    window.location.replace('../index.html');
 
-// build footer
-document.querySelector('#footer-placeholder').replaceWith(UiUtils.buildFooter());
+const messageElement = document.querySelector('#message');
 
-// build loading view
-document.querySelector('#loading-view-placeholder').replaceWith(UiUtils.buildLoadingView());
+document.querySelector('form button').addEventListener('click', async e => {
+    e.preventDefault();
+    const email = document.querySelector('#email-input').value;
+    const password = document.querySelector('#password-input').value;
+    
+    UiUtils.hideMessage(messageElement);
+    UiUtils.showLoadingView();
+    const response = await AuthService.login(email, password);
+    UiUtils.hideLoadingView();
 
-async function main() {
-    //UiUtils.showLoadingView();
-    //await buildCategoryProducts();
-    //UiUtils.hideLoadingView();
-}
-main();
+    if (response.success) {
+        window.location.replace('../index.html');
+    }
+    else {
+        UiUtils.buildErrorMessage(messageElement, response.message);
+    }
+});
