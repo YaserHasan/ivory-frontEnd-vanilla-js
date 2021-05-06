@@ -66,7 +66,7 @@ class AuthService {
         if (isValidAccessToken)
             return sessionStorage.setItem('authorized', 'true');
 
-        const isTokenRefreshed = await this.#refreshAccessToken(refrshToken);
+        const isTokenRefreshed = await this.#refreshAccessToken(refreshToken);
         return sessionStorage.setItem('authorized', isTokenRefreshed.toString());
     }
 
