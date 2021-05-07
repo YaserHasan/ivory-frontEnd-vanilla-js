@@ -1,5 +1,5 @@
 // navigate to hmepage if user already logged in
-if (sessionStorage.getItem('authorized') === 'true')
+if (AuthService.lazyIsLoggedIn())
     window.location.replace('../index.html');
 
 const messageElement = document.querySelector('#message');

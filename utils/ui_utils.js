@@ -1,8 +1,8 @@
 class UiUtils {
-    static buildHeader() {
-        const isLoggedIn = sessionStorage.getItem('authorized');
+    static async buildHeader() {
+        const isLoggedIn = await AuthService.isLoggedIn();
         function buildAccountDropDown() {
-            if (isLoggedIn === 'true')
+            if (isLoggedIn)
                 return `
                     <li><a href="#">My orders</a></li>
                     <li><a onclick="(async () => {
@@ -19,7 +19,7 @@ class UiUtils {
         }
 
         function buildCartHREF() {
-            if (isLoggedIn === 'true')
+            if (isLoggedIn)
                 return "#";
             return FormatUtils.getRelativePath('pages/login.html');
         }

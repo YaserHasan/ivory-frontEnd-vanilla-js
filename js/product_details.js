@@ -1,14 +1,21 @@
 async function main() {
     UiUtils.showLoadingView();
     await buildProductDetails();
+    await checkIfProductInCart();
     UiUtils.hideLoadingView();
 }
+
+// get productID
+const productID = FormatUtils.getURLParam(window.location.href, 'ID');
+
+let isInCart;
+const productImage = document.querySelector('#product-image');
+const addToCartBtn = document.querySelector('#add-to-cart-btn');
+
 main();
 
 // build product details
 async function buildProductDetails() {
-    // get productID
-    const productID = FormatUtils.getURLParam(window.location.href, 'ID');
     // get product details
     const product = await ProductsService.getProductDetails(productID);
     // update page title
@@ -46,7 +53,34 @@ function updateElementText(elementID, text) {
     element.innerHTML = text;
 }
 
-function showHiddenElements() {
-    document.querySelector('#product-image').classList.remove('hidden');
-    document.querySelector('#add-to-cart-btn').classList.remove('hidden');
+async function checkIfProductInCart() {
+    isInCart = await CartService.isProductInUserCart(productID);
+    if (isInCart) {
+        addToCartBtn.classList.add('btn-danger');
+        addToCartBtn.textContent = 'REMOVE FROM CART';
+    }
+    else {
+        addToCartBtn.classList.remove('btn-danger');
+        addToCartBtn.textContent = 'ADD TO CART';
+    } 
 }
+
+function showHiddenElements() {
+    productImage.classList.remove('hidden');
+    addToCartBtn.classList.remove('hidden');
+}
+
+addToCartBtn.addEventListener('click', async () => {
+    const isLoggedIn = await AuthService.isLoggedIn();
+    if (!isLoggedIn)
+        return window.location.assign('login.html');
+    
+    UiUtils.showLoadingView();
+    if (isInCart)
+        await CartService.removeProductFromUserCart(productID);
+    else
+        await CartService.addProductToUserCart(productID);
+
+    await checkIfProductInCart();
+    UiUtils.hideLoadingView();
+});

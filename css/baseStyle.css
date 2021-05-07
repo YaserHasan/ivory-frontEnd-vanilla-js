@@ -158,6 +158,10 @@ a:active {
     font-size: 2rem;
 }
 
+.btn-danger {
+    background-color: var(--error-color);
+}
+
 .divider {
     display: block;
     height: 1px;

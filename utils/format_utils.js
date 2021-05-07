@@ -9,4 +9,12 @@ class FormatUtils {
         const url = new URL(urlString);
         return url.searchParams.get(paramName);
     }
+
+    static getAuthorizedHeader(token) {
+        const accessToken = token || localStorage.getItem('accessToken');
+        return {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+        };
+    }
 }

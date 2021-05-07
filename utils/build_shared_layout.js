@@ -4,8 +4,8 @@ document.querySelector('#loading-view-placeholder').replaceWith(UiUtils.buildLoa
 // build header
 async function buildHeader() {
     UiUtils.showLoadingView();
-    await AuthService.updateAuthStatus();
-    document.querySelector('#header-placeholder').replaceWith(UiUtils.buildHeader());
+    const header = await UiUtils.buildHeader();
+    document.querySelector('#header-placeholder').replaceWith(header);
     UiUtils.hideLoadingView();
 }
 buildHeader();

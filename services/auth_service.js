@@ -45,12 +45,9 @@ class AuthService {
         if (sessionStorage.getItem('authorized') === 'false') return;
 
         const url = `${API_BASE_URL}/auth/logout`;
-        const accessToken = localStorage.getItem('accessToken');
         const response = await fetch(url, {
             method: 'DELETE',
-            headers: {
-                'Authorization': `Bearer ${accessToken}`
-            },
+            headers: FormatUtils.getAuthorizedHeader(),
         });
         localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
@@ -74,9 +71,7 @@ class AuthService {
         const url = `${API_BASE_URL}/auth/checkAuth`;
         const response = await fetch(url, {
             method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${accessToken}`
-            },
+            headers: FormatUtils.getAuthorizedHeader(accessToken),
         });
         return response.status == 204;
     }
@@ -95,6 +90,15 @@ class AuthService {
         const data = await response.json();
         localStorage.setItem('accessToken', data.accessToken);
         return true;
+    }
+
+    static async isLoggedIn() {
+        await this.updateAuthStatus();
+        return this.lazyIsLoggedIn();
+    }
+
+    static lazyIsLoggedIn() {
+        return sessionStorage.getItem('authorized') === 'true';
     }
 }
        
