@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ivory Computers and Phones | Cart</title>
+        <!-- =============
+             Style
+        ============== -->
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/868720a2ea.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" integrity="sha512-OdEXQYCOldjqUEsuMKsZRj93Ht23QRlhIb8E/X0sbwZhme8eUw6g8q7AdxGJKakcBbv7+/PX0Gc2btf7Ru8cZA==" crossorigin="anonymous" />
+        <!-- Lottie Files -->
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <!-- CSS -->
+        <link rel="stylesheet" href="../css/baseStyle.css">
+        <link rel="stylesheet" href="../css/cart.css">
+        <!-- =============
+            JavaScript
+        ============== -->
+        <script defer src="../constants.js"></script>
+        <script defer src="../utils/format_utils.js"></script>
+        <script defer src="../services/auth_service.js"></script>
+        <script defer src="../utils/ui_utils.js"></script>
+        <script defer src="../utils/build_shared_layout.js"></script>
+        <script defer src="../services/cart_service.js"></script>
+        <script defer src="../js/cart.js"></script>
+    </head>
+    <body>
+        <div id="loading-view-placeholder"></div>
+
+        <div id="header-placeholder"></div>
+        
+        <main class="container">
+            <h1>Shopping Cart</h1>
+
+            <div id="flex-container">
+                <section id="cart-products-section"></section>
+
+                <section id="order-info-section">
+                    <div id="order-info-card" class="card">
+                        <h3>Order Summary</h3>
+                        <div class="order-info-row">
+                            <p>Subtotal</p>
+                            <p id="sub-total"></p>
+                        </div>
+
+                        <div class="order-info-row">
+                            <p>Taxes</p>
+                            <p id="taxes"></p>
+                        </div>
+
+                        <div id="total-row" class="divider"></div>
+
+                        <div class="order-info-row">
+                            <p>Total</p>
+                            <p id="total" class="p-large"></p>
+                        </div>
+
+                        <button id="buy-btn" class="btn btn-small">BUY</button>
+                        </div>
+
+                </section>
+            </div>
+        </main>
+
+        <div id="footer-placeholder"></div>
+    </body>
+</html>

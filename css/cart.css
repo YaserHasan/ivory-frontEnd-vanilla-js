@@ -1,0 +1,155 @@
+main h1 {
+    margin-bottom: 2rem;
+}
+
+#flex-container {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+#cart-products-section {
+    flex: 5.3;
+}
+
+#order-info-section {
+    flex: 3;
+}
+
+/*
+====================================
+    cart-products-section
+====================================
+*/
+
+/* === cart product view === */
+.cart-product-view {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+}
+
+
+/* === cart product image === */
+.cart-product-image {
+    flex: 3;
+}
+
+.cart-product-image img {
+    max-height: 150px;
+}
+
+
+/* === cart product info === */
+.cart-product-info {
+    flex: 8;
+    margin-left: 1rem;
+}
+
+.cart-product-price {
+    font-size: 2.8rem;
+    font-weight: 500;
+    margin: 2rem 0;
+}
+
+
+/* === cart product actions === */
+.cart-product-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.cart-product-quantity-actions {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.cart-product-product-quantity {
+    margin: 0 2rem;
+}
+
+.cart-product-quantity-action,
+.cart-product-remove-btn {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 300ms;
+}
+
+.cart-product-quantity-action {
+    height: 35px;
+    width: 35px;
+    background-color: var(--divider-color);
+    border-radius: 50%;
+}
+
+.cart-product-quantity-action:hover,
+.cart-product-remove-btn:hover {
+    filter: brightness(0.80);
+}
+
+.cart-product-quantity-action::after,
+.cart-product-remove-btn::after {
+    position: relative;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 1.6rem;
+}
+
+.quantity-action-inc::after {
+    content: '\f068';
+}
+
+.quantity-action-dec::after {
+    content: '\f067';
+}
+
+.cart-product-remove-btn {
+    height: 40px;
+    width: 90px;
+    background-color: var(--error-color);
+    border-radius: 7px;
+}
+
+.cart-product-remove-btn::after {
+    content: '\f1f8';
+    color: white;
+    font-size: 2.4rem;
+}
+
+
+/*
+====================================
+    order info section
+====================================
+*/
+
+/* === order info card === */
+#order-info-card {
+    margin-left: 4rem;
+    padding: 2rem 1.5rem;
+}
+
+#order-info-card h3 {
+    margin-bottom: 1.5rem;
+}
+
+/* === order info row === */
+.order-info-row {
+    margin: 0.7rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#order-info-card .divider {
+    margin: 3rem 0 1.5rem 0;
+}
+
+#buy-btn {
+    margin-top: 2rem;
+}

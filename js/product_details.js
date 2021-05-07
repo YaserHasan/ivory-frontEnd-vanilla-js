@@ -1,7 +1,7 @@
 async function main() {
     UiUtils.showLoadingView();
-    await buildProductDetails();
     await checkIfProductInCart();
+    await buildProductDetails();
     UiUtils.hideLoadingView();
 }
 

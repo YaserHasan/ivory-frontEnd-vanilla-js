@@ -20,7 +20,7 @@ class UiUtils {
 
         function buildCartHREF() {
             if (isLoggedIn)
-                return "#";
+                return FormatUtils.getRelativePath('pages/cart.html');
             return FormatUtils.getRelativePath('pages/login.html');
         }
 
@@ -81,6 +81,33 @@ class UiUtils {
                 <p>${product.name}</p>
                 <h2>${product.price}&#8362;</h2>
             </a>
+        `;
+        return productElement;
+    }
+
+    static buildCartProductView(cartProduct) {
+        const productElement = document.createElement('div');
+        productElement.classList.add('card');
+        productElement.classList.add('cart-product-view');
+        productElement.innerHTML = `
+            <div class="cart-product-image">
+                <img src="${cartProduct.imageURL}" alt="product">
+                </div>
+
+                <div class="cart-product-info">
+                    <p class="p-large">${cartProduct.name}</p>
+                    <p class="cart-product-price">${FormatUtils.formatPrice(cartProduct.productTotalPrice)}</p>
+
+                    <div class="cart-product-actions">
+                        <div class="cart-product-quantity-actions">
+                            <div class="cart-product-quantity-action quantity-action-inc"></div>
+                            <p class="p-xlarge cart-product-product-quantity">1</p>
+                            <div class="cart-product-quantity-action quantity-action-dec"></div>
+                        </div>
+
+                        <div class="cart-product-remove-btn"></div>
+                    </div>
+            </div>
         `;
         return productElement;
     }

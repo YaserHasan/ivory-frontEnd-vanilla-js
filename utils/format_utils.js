@@ -17,4 +17,11 @@ class FormatUtils {
             'Authorization': `Bearer ${accessToken}`
         };
     }
+
+    static formatPrice(price) {
+        let formattedPrice = price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        // to remove the .00 at the end
+        formattedPrice = formattedPrice.split('.')[0];
+        return formattedPrice.toString() + '&#8362;';
+    }
 }
