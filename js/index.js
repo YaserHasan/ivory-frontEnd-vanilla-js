@@ -17,7 +17,7 @@ async function buildCategories() {
         categoryElement.innerHTML = `
             <a href="pages/category_products.html?ID=${category.id}">
                 <input type="hidden" id="category-id" value="${category.id}">
-                <img src="${category.imageURL}" alt="category">
+                <img src="${API_BASE_URL}/${category.imageURL}" alt="category">
                 <h3>${category.name}</h3>
             </a>
         `;

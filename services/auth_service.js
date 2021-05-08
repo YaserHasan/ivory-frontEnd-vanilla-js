@@ -1,6 +1,6 @@
 class AuthService {
     static async login(email, password) {
-        const url = `${API_BASE_URL}/auth/login`;
+        const url = `${API_BASE_URL}/api/auth/login`;
         const response = await fetch(url, {
             method: 'POST',
             headers: {
@@ -22,7 +22,7 @@ class AuthService {
     }
 
     static async register(name, email, password) {
-        const url = `${API_BASE_URL}/auth/register`;
+        const url = `${API_BASE_URL}/api/auth/register`;
         const response = await fetch(url, {
             method: 'POST',
             headers: {
@@ -44,7 +44,7 @@ class AuthService {
         await this.updateAuthStatus();
         if (sessionStorage.getItem('authorized') === 'false') return;
 
-        const url = `${API_BASE_URL}/auth/logout`;
+        const url = `${API_BASE_URL}/api/auth/logout`;
         const response = await fetch(url, {
             method: 'DELETE',
             headers: FormatUtils.getAuthorizedHeader(),
@@ -68,7 +68,7 @@ class AuthService {
     }
 
     static async #checkAccessToken(accessToken) {
-        const url = `${API_BASE_URL}/auth/checkAuth`;
+        const url = `${API_BASE_URL}/api/auth/checkAuth`;
         const response = await fetch(url, {
             method: 'GET',
             headers: FormatUtils.getAuthorizedHeader(accessToken),
@@ -77,7 +77,7 @@ class AuthService {
     }
 
     static async #refreshAccessToken(refreshToken) {
-        const url = `${API_BASE_URL}/auth/refreshToken`;
+        const url = `${API_BASE_URL}/api/auth/refreshToken`;
         const response = await fetch(url, {
             method: 'POST',
             headers: {

@@ -1,7 +1,7 @@
 class OrdersService {
 
     static async getUserOrders() {
-        const url = `${API_BASE_URL}/orders`;
+        const url = `${API_BASE_URL}/api/orders`;
         const response = await fetch(url, {
             method: 'GET',
             headers: FormatUtils.getAuthorizedHeader(),
@@ -12,7 +12,7 @@ class OrdersService {
     }
 
     static async createOrderFromCart() {
-        const url = `${API_BASE_URL}/orders`;
+        const url = `${API_BASE_URL}/api/orders`;
         const response = await fetch(url, {
             method: 'POST',
             headers: FormatUtils.getAuthorizedHeader(),

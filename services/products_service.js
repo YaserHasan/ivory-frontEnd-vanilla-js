@@ -1,6 +1,6 @@
 class ProductsService {
     static async getCategories() {
-        const url = `${API_BASE_URL}/products/categories`;
+        const url = `${API_BASE_URL}/api/products/categories`;
         const response = await fetch(url, {
             method: 'GET',
             headers: {
@@ -12,7 +12,7 @@ class ProductsService {
     }
 
     static async getFeaturedProducts() {
-        const url = `${API_BASE_URL}/products/featured`;
+        const url = `${API_BASE_URL}/api/products/featured`;
         const response = await fetch(url, {
             method: 'GET',
             headers: {
@@ -24,7 +24,7 @@ class ProductsService {
     }
 
     static async getMostPopularProducts() {
-        const url = `${API_BASE_URL}/products/mostPopular`;
+        const url = `${API_BASE_URL}/api/products/mostPopular`;
         const response = await fetch(url, {
             method: 'GET',
             headers: {
@@ -36,7 +36,7 @@ class ProductsService {
     }
 
     static async getCategoryData(categoryID) {
-        const url = `${API_BASE_URL}/products/categories/${categoryID}`;
+        const url = `${API_BASE_URL}/api/products/categories/${categoryID}`;
         const response = await fetch(url, {
             method: 'GET',
             headers: {
@@ -48,7 +48,7 @@ class ProductsService {
     }
 
     static async getProductDetails(productID) {
-        const url = `${API_BASE_URL}/products/${productID}`;
+        const url = `${API_BASE_URL}/api/products/${productID}`;
         const response = await fetch(url, {
             method: 'GET',
             headers: {

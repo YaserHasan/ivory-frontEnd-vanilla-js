@@ -1,6 +1,6 @@
 class CartService {
     static async isProductInUserCart(productID) {
-        const url = `${API_BASE_URL}/cart/${productID}`;
+        const url = `${API_BASE_URL}/api/cart/${productID}`;
         const response = await fetch(url, {
             method: 'GET',
             headers: FormatUtils.getAuthorizedHeader(),
@@ -10,7 +10,7 @@ class CartService {
     }
 
     static async getUserCart() {
-        const url = `${API_BASE_URL}/cart`;
+        const url = `${API_BASE_URL}/api/cart`;
         const response = await fetch(url, {
             method: 'GET',
             headers: FormatUtils.getAuthorizedHeader(),
@@ -21,7 +21,7 @@ class CartService {
     }
 
     static async addProductToUserCart(productID) {
-        const url = `${API_BASE_URL}/cart/${productID}`;
+        const url = `${API_BASE_URL}/api/cart/${productID}`;
         const response = await fetch(url, {
             method: 'POST',
             headers: FormatUtils.getAuthorizedHeader(),
@@ -32,7 +32,7 @@ class CartService {
     }
 
     static async removeProductFromUserCart(productID) {
-        const url = `${API_BASE_URL}/cart/${productID}`;
+        const url = `${API_BASE_URL}/api/cart/${productID}`;
         const response = await fetch(url, {
             method: 'DELETE',
             headers: FormatUtils.getAuthorizedHeader(),
@@ -43,7 +43,7 @@ class CartService {
     }
 
     static async incrementProductQuantity(productID) {
-        const url = `${API_BASE_URL}/cart/incrementQuantity/${productID}`;
+        const url = `${API_BASE_URL}/api/cart/incrementQuantity/${productID}`;
         const response = await fetch(url, {
             method: 'PUT',
             headers: FormatUtils.getAuthorizedHeader(),
@@ -54,7 +54,7 @@ class CartService {
     }
 
     static async decrementProductQuantity(productID) {
-        const url = `${API_BASE_URL}/cart/decrementQuantity/${productID}`;
+        const url = `${API_BASE_URL}/api/cart/decrementQuantity/${productID}`;
         const response = await fetch(url, {
             method: 'PUT',
             headers: FormatUtils.getAuthorizedHeader(),
