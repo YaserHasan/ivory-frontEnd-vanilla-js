@@ -88,6 +88,9 @@ main h1 {
     order info section
 ====================================
 */
+main {
+    min-height: var(--free-space-size);
+}
 
 /* === order info card === */
 #order-info-card {
@@ -110,6 +113,6 @@ main h1 {
     margin: 3rem 0 1.5rem 0;
 }
 
-#buy-btn {
+#checkout-btn {
     margin-top: 2rem;
 }

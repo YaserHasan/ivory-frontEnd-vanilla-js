@@ -4,6 +4,10 @@
 ====================================
 */
 
+main {
+    min-height: var(--free-space-size);
+}
+
 #category-products-section h1 {
     margin-bottom: 2rem;
 }

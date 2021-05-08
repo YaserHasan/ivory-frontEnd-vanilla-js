@@ -4,7 +4,7 @@ class UiUtils {
         function buildAccountDropDown() {
             if (isLoggedIn)
                 return `
-                    <li><a href="#">My orders</a></li>
+                    <li><a href="${FormatUtils.getRelativePath('pages/orders.html')}">My orders</a></li>
                     <li><a onclick="(async () => {
                         UiUtils.showLoadingView();
                         await AuthService.logout();
@@ -86,6 +86,20 @@ class UiUtils {
     }
 
     static buildHorizontalProductView(product, inCart) {
+        function buildProductFooter() {
+            if (inCart)
+                return `<div class="cart-product-actions">
+                    <div class="cart-product-quantity-actions">
+                        <div class="cart-product-quantity-action quantity-action-dec clickable"></div>
+                        <p class="p-xlarge cart-product-product-quantity">${product.quantity}</p>
+                        <div class="cart-product-quantity-action quantity-action-inc clickable"></div>
+                    </div>
+
+                    <div class="cart-product-remove-btn clickable"></div>
+                </div>`
+                
+            return '';
+        }
         const productElement = document.createElement('div');
         productElement.classList.add('card');
         productElement.classList.add('horizontal-product-view');
@@ -102,23 +116,52 @@ class UiUtils {
                 </a>
                 <p class="horizontal-product-price">${FormatUtils.formatPrice(product.productTotalPrice)}</p>
                 
-                ${
-                    !inCart ? '' : 
-                    `
-                    <div class="cart-product-actions">
-                        <div class="cart-product-quantity-actions">
-                            <div class="cart-product-quantity-action quantity-action-dec clickable"></div>
-                            <p class="p-xlarge cart-product-product-quantity">${product.quantity}</p>
-                            <div class="cart-product-quantity-action quantity-action-inc clickable"></div>
-                        </div>
-
-                        <div class="cart-product-remove-btn clickable"></div>
-                    </div>
-                    `
-                }
+                ${buildProductFooter()}
             </div>
         `;
         return productElement;
+    }
+
+    static buildOrderView(order) {
+        // used arrow function to avoid binding errors
+        const buildOrderProducts = () => {
+            const wrapper = document.createElement('div');
+            const productsDiv = document.createElement('div');
+            productsDiv.classList.add('order-products');
+            wrapper.appendChild(productsDiv);
+
+            order.products.forEach((product) => {
+                productsDiv.appendChild(this.buildHorizontalProductView(product));
+            });
+            return wrapper.innerHTML;
+        }
+
+        const orderElement = document.createElement('div');
+        orderElement.classList.add('card');
+        orderElement.classList.add('order');
+        orderElement.innerHTML = `
+            <div class="order-info">
+                <div class="order-info-row">
+                    <h3>Order ID:</h3>
+                    <p class="p-xlarge">${order.id}</p>
+                </div>
+
+                <div class="align-left">
+                    <div class="order-info-row">
+                        <h3>Order Date:</h3>
+                        <p class="p-xlarge">${FormatUtils.formatDate(order.date)}</p>
+                    </div>
+
+                    <div class="order-info-row">
+                        <h3>Order amount:</h3>
+                        <p class="p-xlarge">${FormatUtils.formatPrice(order.totalPrice)}</p>
+                    </div>
+                </div>
+            </div>
+
+            ${buildOrderProducts()}
+        `;
+        return orderElement;
     }
 
     static updatePageTitle(title, hideSiteName) {

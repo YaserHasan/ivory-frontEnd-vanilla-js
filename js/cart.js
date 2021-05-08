@@ -83,6 +83,14 @@ async function removeProductFromCart(productID) {
     UiUtils.hideLoadingView();
 }
 
+async function checkout() {
+    UiUtils.showLoadingView();
+    const response = await OrdersService.createOrderFromCart();
+    UiUtils.hideLoadingView();
+    if (!response.success) return alert(response.message);
+    window.location.replace('./order_success.html');
+}
+
 // event listeners
 function addProductEventListeners(productID, productElement) {
     const incBtn = productElement.querySelector('.quantity-action-inc');
@@ -93,5 +101,7 @@ function addProductEventListeners(productID, productElement) {
     decBtn.addEventListener('click', async () => await decremementProductQuantity(productID));
     removeBtn.addEventListener('click', async () => await removeProductFromCart(productID));
 }
+
+document.querySelector('#checkout-btn').addEventListener('click', checkout);
 
 

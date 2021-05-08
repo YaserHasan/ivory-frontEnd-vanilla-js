@@ -15,7 +15,7 @@ class CartService {
             method: 'GET',
             headers: FormatUtils.getAuthorizedHeader(),
         });
-        if (response.status >= 400) return {success: false, message: ERROR_MESSAGE_TEXT};
+        if (response.status >= 400) return {success: false, message: ERROR_MESSAGE_TEXT_REFRESH};
         const data = await response.json();
         return {success: true, data: data.data}
     }

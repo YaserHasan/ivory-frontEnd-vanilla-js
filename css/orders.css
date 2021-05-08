@@ -1,0 +1,38 @@
+main {
+    min-height: var(--free-space-size);
+}
+
+main h1 {
+    margin-bottom: 2rem;
+}
+
+/* === order info === */
+.order {
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.order-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.order-info-row {
+    display: flex;
+    justify-content: start;
+}
+
+.order-info-row h3:first-child {
+    margin-right: 1rem;
+}
+
+.align-left {
+    display: flex;
+    justify-content: start;
+}
+
+.align-left .order-info-row:first-child {
+    margin-right: 3rem;
+}

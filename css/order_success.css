@@ -1,0 +1,24 @@
+main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    width: 500px;
+    min-height: var(--free-space-size);
+}
+
+img {
+    width: 150px;
+    height: 150px;
+}
+
+h1 {
+    margin: 2rem 0;
+}
+
+main button {
+    margin-top: 3rem;
+    max-width: 330px !important;
+}
