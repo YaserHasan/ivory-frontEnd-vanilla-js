@@ -18,7 +18,7 @@
     background-color: #EDF1F4;
     text-align: center;
     cursor: pointer;
-    transition: 300ms;
+    transition: var(--transition-time);
 }
 
 .category img {

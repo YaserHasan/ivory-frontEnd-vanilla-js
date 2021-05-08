@@ -39,15 +39,15 @@ class UiUtils {
 
                 <div class="input-with-icon">
                     <input type="text" placeholder="Search">
-                    <div class="icon">
+                    <div class="icon clickable">
                         <i class="fas fa-search"></i>
                     </div>
                 </div>
 
                 <nav>
-                    <a href="${buildCartHREF()}" class="action-link"><i class="fas fa-shopping-cart"></i></a>
+                    <a href="${buildCartHREF()}" class="action-link clickable"><i class="fas fa-shopping-cart"></i></a>
                     <div class="drop-down-link">
-                        <a href="#" class="action-link"><i class="fas fa-user"></i></a>
+                        <a href="#" class="action-link clickable"><i class="fas fa-user"></i></a>
                         <ul class="drop-down-items">
                             ${buildAccountDropDown()}
                         </ul>
@@ -79,34 +79,43 @@ class UiUtils {
                 <input type="hidden" id="product-id" value="${product.id}">
                 <img src=${product.imageURL} alt="Product">
                 <p>${product.name}</p>
-                <h2>${product.price}&#8362;</h2>
+                <h2>${FormatUtils.formatPrice(product.price)}</h2>
             </a>
         `;
         return productElement;
     }
 
-    static buildCartProductView(cartProduct) {
+    static buildHorizontalProductView(product, inCart) {
         const productElement = document.createElement('div');
         productElement.classList.add('card');
         productElement.classList.add('cart-product-view');
         productElement.innerHTML = `
             <div class="cart-product-image">
-                <img src="${cartProduct.imageURL}" alt="product">
-                </div>
+                <a href="${FormatUtils.getRelativePath(`pages/product_details.html?ID=${product.id}`)}" target="_blank">
+                    <img src="${product.imageURL}" alt="product">
+                </a>
+            </div>
 
-                <div class="cart-product-info">
-                    <p class="p-large">${cartProduct.name}</p>
-                    <p class="cart-product-price">${FormatUtils.formatPrice(cartProduct.productTotalPrice)}</p>
-
+            <div class="cart-product-info">
+                <a href="${FormatUtils.getRelativePath(`pages/product_details.html?ID=${product.id}`)}" target="_blank">
+                    <p class="p-large">${product.name}</p>
+                </a>
+                <p class="cart-product-price">${FormatUtils.formatPrice(product.productTotalPrice)}</p>
+                
+                ${
+                    !inCart ? '' : 
+                    `
                     <div class="cart-product-actions">
                         <div class="cart-product-quantity-actions">
-                            <div class="cart-product-quantity-action quantity-action-inc"></div>
+                            <div class="cart-product-quantity-action quantity-action-inc clickable"></div>
                             <p class="p-xlarge cart-product-product-quantity">1</p>
-                            <div class="cart-product-quantity-action quantity-action-dec"></div>
+                            <div class="cart-product-quantity-action quantity-action-dec clickable"></div>
                         </div>
 
-                        <div class="cart-product-remove-btn"></div>
+                        <div class="cart-product-remove-btn clickable"></div>
                     </div>
+                    `
+                }
             </div>
         `;
         return productElement;

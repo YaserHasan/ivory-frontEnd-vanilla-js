@@ -31,7 +31,7 @@ function updateHTMLProductDetails(product) {
     document.querySelector('#product-id').value = product.id;
     updateElementText('product-name', product.name);
     updateElementText('product-description', product.description);
-    updateElementText('product-price', `${product.price}&#8362;`);
+    updateElementText('product-price', `${FormatUtils.formatPrice(product.price)}`);
     // update image
     const productImage = document.querySelector('#product-image');
     productImage.src = product.imageURL;

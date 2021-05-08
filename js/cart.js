@@ -32,7 +32,7 @@ async function buildOrderInfo() {
 function buildCartProducts() {
     const cartProductsSection = document.querySelector('#cart-products-section');
     userCartProducts.forEach(product => {
-        cartProductsSection.appendChild(UiUtils.buildCartProductView(product));
+        cartProductsSection.appendChild(UiUtils.buildHorizontalProductView(product, true));
     });
 }
 

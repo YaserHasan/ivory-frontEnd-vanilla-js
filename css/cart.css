@@ -61,7 +61,6 @@ main h1 {
     justify-content: space-between;
 }
 
-
 .cart-product-quantity-actions {
     display: flex;
     align-items: center;
@@ -78,7 +77,6 @@ main h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 300ms;
 }
 
 .cart-product-quantity-action {
@@ -86,11 +84,6 @@ main h1 {
     width: 35px;
     background-color: var(--divider-color);
     border-radius: 50%;
-}
-
-.cart-product-quantity-action:hover,
-.cart-product-remove-btn:hover {
-    filter: brightness(0.80);
 }
 
 .cart-product-quantity-action::after,
