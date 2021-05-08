@@ -15,8 +15,9 @@ class CartService {
             method: 'GET',
             headers: FormatUtils.getAuthorizedHeader(),
         });
+        if (response.status >= 400) return {success: false, message: ERROR_MESSAGE_TEXT};
         const data = await response.json();
-        return data.data;
+        return {success: true, data: data.data}
     }
 
     static async addProductToUserCart(productID) {
@@ -25,8 +26,9 @@ class CartService {
             method: 'POST',
             headers: FormatUtils.getAuthorizedHeader(),
         });
-        if (response.status >= 400) return false;
-        return true;
+        if (response.status == 409) return {success: false, message: 'Product already in cart'};
+        if (response.status >= 400) return {success: false, message: ERROR_MESSAGE_TEXT};
+        return {success: true};
     }
 
     static async removeProductFromUserCart(productID) {
@@ -35,8 +37,9 @@ class CartService {
             method: 'DELETE',
             headers: FormatUtils.getAuthorizedHeader(),
         });
-        if (response.status >= 400) return false;
-        return true;
+        if (response.status == 404) return {success: false, message: 'this product is no longer in cart!'};
+        if (response.status >= 400) return {success: false, message: ERROR_MESSAGE_TEXT};
+        return {success: true}
     }
 
     static async incrementProductQuantity(productID) {
@@ -46,7 +49,7 @@ class CartService {
             headers: FormatUtils.getAuthorizedHeader(),
         });
         if (response.status == 404) return {success: false, message: 'this product is no longer in cart!'};
-        if (response.status >= 400) return {success: false};
+        if (response.status >= 400) return {success: false, message: ERROR_MESSAGE_TEXT};
         return {success: true};
     }
 
@@ -57,8 +60,8 @@ class CartService {
             headers: FormatUtils.getAuthorizedHeader(),
         });
         if (response.status == 404) return {success: false, message: 'this product is no longer in cart!'};
-        if (response.status == 405) return {success: false, message: 'Product quantity can\'t be less than 1'};
-        if (response.status >= 400) return {success: false};
+        if (response.status == 405) return await this.removeProductFromUserCart(productID);
+        if (response.status >= 400) return {success: false, message: ERROR_MESSAGE_TEXT};
         return {success: true};
     }
 }

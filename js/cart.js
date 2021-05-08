@@ -14,7 +14,9 @@ let userCartProducts;
 main();
 
 async function buildOrderInfo() {
-    userCartProducts = await CartService.getUserCart();
+    const response = await CartService.getUserCart();
+    if (!response.success) return alert(response.message);
+    userCartProducts = response.data;
     // calc total price
     const totalPrice = userCartProducts.reduce((currentTotal, product) => {
         return currentTotal + product.productTotalPrice;
@@ -31,8 +33,65 @@ async function buildOrderInfo() {
 
 function buildCartProducts() {
     const cartProductsSection = document.querySelector('#cart-products-section');
+    // clear products
+    cartProductsSection.innerHTML = '';
     userCartProducts.forEach(product => {
-        cartProductsSection.appendChild(UiUtils.buildHorizontalProductView(product, true));
+        const productElement = UiUtils.buildHorizontalProductView(product, true);
+        // add event listeners
+        addProductEventListeners(product.id, productElement);
+        cartProductsSection.appendChild(productElement);
     });
 }
+
+//funcions
+async function incremementProductQuantity(productID) {
+    UiUtils.showLoadingView();
+    const response = await CartService.incrementProductQuantity(productID);
+    if (!response.success) {
+        UiUtils.hideLoadingView();
+        alert(response.message);
+        location.reload();
+    }
+    await buildOrderInfo();
+    buildCartProducts();
+    UiUtils.hideLoadingView();
+}
+
+async function decremementProductQuantity(productID) {
+    UiUtils.showLoadingView();
+    const response = await CartService.decrementProductQuantity(productID);
+    if (!response.success) {
+        UiUtils.hideLoadingView();
+        alert(response.message);
+        location.reload();
+    }
+    await buildOrderInfo();
+    buildCartProducts();
+    UiUtils.hideLoadingView();
+}
+
+async function removeProductFromCart(productID) {
+    UiUtils.showLoadingView();
+    const response = await CartService.removeProductFromUserCart(productID);
+    if (!response.success) {
+        UiUtils.hideLoadingView();
+        alert(response.message);
+        location.reload();
+    }
+    await buildOrderInfo();
+    buildCartProducts();
+    UiUtils.hideLoadingView();
+}
+
+// event listeners
+function addProductEventListeners(productID, productElement) {
+    const incBtn = productElement.querySelector('.quantity-action-inc');
+    const decBtn = productElement.querySelector('.quantity-action-dec');
+    const removeBtn = productElement.querySelector('.cart-product-remove-btn');
+
+    incBtn.addEventListener('click', async () => await incremementProductQuantity(productID));
+    decBtn.addEventListener('click', async () => await decremementProductQuantity(productID));
+    removeBtn.addEventListener('click', async () => await removeProductFromCart(productID));
+}
+
 

@@ -88,28 +88,28 @@ class UiUtils {
     static buildHorizontalProductView(product, inCart) {
         const productElement = document.createElement('div');
         productElement.classList.add('card');
-        productElement.classList.add('cart-product-view');
+        productElement.classList.add('horizontal-product-view');
         productElement.innerHTML = `
-            <div class="cart-product-image">
+            <div class="horizontal-product-image">
                 <a href="${FormatUtils.getRelativePath(`pages/product_details.html?ID=${product.id}`)}" target="_blank">
                     <img src="${product.imageURL}" alt="product">
                 </a>
             </div>
 
-            <div class="cart-product-info">
+            <div class="horizontal-product-info">
                 <a href="${FormatUtils.getRelativePath(`pages/product_details.html?ID=${product.id}`)}" target="_blank">
                     <p class="p-large">${product.name}</p>
                 </a>
-                <p class="cart-product-price">${FormatUtils.formatPrice(product.productTotalPrice)}</p>
+                <p class="horizontal-product-price">${FormatUtils.formatPrice(product.productTotalPrice)}</p>
                 
                 ${
                     !inCart ? '' : 
                     `
                     <div class="cart-product-actions">
                         <div class="cart-product-quantity-actions">
-                            <div class="cart-product-quantity-action quantity-action-inc clickable"></div>
-                            <p class="p-xlarge cart-product-product-quantity">1</p>
                             <div class="cart-product-quantity-action quantity-action-dec clickable"></div>
+                            <p class="p-xlarge cart-product-product-quantity">${product.quantity}</p>
+                            <div class="cart-product-quantity-action quantity-action-inc clickable"></div>
                         </div>
 
                         <div class="cart-product-remove-btn clickable"></div>

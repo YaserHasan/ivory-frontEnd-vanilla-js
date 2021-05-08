@@ -22,39 +22,6 @@ main h1 {
 ====================================
 */
 
-/* === cart product view === */
-.cart-product-view {
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    display: flex;
-    justify-content: start;
-    align-items: flex-start;
-}
-
-
-/* === cart product image === */
-.cart-product-image {
-    flex: 3;
-}
-
-.cart-product-image img {
-    max-height: 150px;
-}
-
-
-/* === cart product info === */
-.cart-product-info {
-    flex: 8;
-    margin-left: 1rem;
-}
-
-.cart-product-price {
-    font-size: 2.8rem;
-    font-weight: 500;
-    margin: 2rem 0;
-}
-
-
 /* === cart product actions === */
 .cart-product-actions {
     display: flex;
@@ -95,11 +62,11 @@ main h1 {
 }
 
 .quantity-action-inc::after {
-    content: '\f068';
+    content: '\f067';
 }
 
 .quantity-action-dec::after {
-    content: '\f067';
+    content: '\f068';
 }
 
 .cart-product-remove-btn {

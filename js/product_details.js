@@ -76,10 +76,17 @@ addToCartBtn.addEventListener('click', async () => {
         return window.location.assign('login.html');
     
     UiUtils.showLoadingView();
+    let response;
     if (isInCart)
-        await CartService.removeProductFromUserCart(productID);
+        response = await CartService.removeProductFromUserCart(productID);
     else
-        await CartService.addProductToUserCart(productID);
+        response = await CartService.addProductToUserCart(productID);
+
+    if (!response.success) {
+        UiUtils.hideLoadingView();
+        alert(response.message);
+        location.reload();
+    }
 
     await checkIfProductInCart();
     UiUtils.hideLoadingView();
