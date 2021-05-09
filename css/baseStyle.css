@@ -464,6 +464,10 @@ footer div {
 .vertical-product-view {
     padding: 1rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     transition: var(--transition-time);
 }
