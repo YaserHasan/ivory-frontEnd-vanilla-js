@@ -13,6 +13,7 @@
     flex: 4;
     margin-right: 2rem;
     object-fit: scale-down;
+    max-width: 40%;
 }
 
 #text-info {
@@ -50,11 +51,11 @@
 }
 
 #product-specs-section #product-specs-table td {
-    width: 70%;
+    width: 60%;
     padding: 1rem;
     border-bottom: var(--border);
 }
 
 #product-specs-section #product-specs-table td:first-child {
-    width: 30%;
+    width: 40%;
 }
