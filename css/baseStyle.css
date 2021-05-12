@@ -216,10 +216,12 @@ a:not(.btn):active {
 /* === loading view === */
 .loading-view {
     background-color: rgba(0, 0, 0, 0.7);
-    position: absolute;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     z-index: 1000;
-    height: 100%;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -229,8 +231,8 @@ a:not(.btn):active {
 }
 
 .loading-view lottie-player {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
 }
 
 /* === vertical product view grid === */
@@ -684,6 +686,12 @@ footer div {
 
     .message {
         font-size: 1.8rem;
+    }
+
+    /* === Loading View === */
+    .loading-view lottie-player {
+        width: 200px;
+        height: 200px;
     }
 }
 

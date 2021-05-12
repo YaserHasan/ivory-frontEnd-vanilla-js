@@ -207,7 +207,7 @@ class UiUtils {
         const loadingViewElement = document.createElement('div');
         loadingViewElement.classList.add('loading-view');
         loadingViewElement.innerHTML = `
-            <lottie-player src="${FormatUtils.getRelativePath('assets/ui/loading_spinner.json')}"background="transparent"  speed="1" loop  autoplay>
+            <lottie-player src="${FormatUtils.getRelativePath('assets/ui/loading_spinner.json')}"background="transparent"  speed="2" loop  autoplay>
             </lottie-player>
         `;
         return loadingViewElement;
@@ -216,7 +216,6 @@ class UiUtils {
     static showLoadingView() {
         const loadingView = document.querySelector('.loading-view');
         loadingView.style.opacity = 1;
-        document.body.style.overflow = "hidden";
         loadingView.style.display = 'flex';
     }
 
@@ -225,7 +224,6 @@ class UiUtils {
         loadingView.style.opacity = 0;
         // set Timeout to show animation before hiding
         setTimeout(() => {
-            document.body.style.overflow = "auto";
             loadingView.style.display = 'none';
         }, 300)
     }
