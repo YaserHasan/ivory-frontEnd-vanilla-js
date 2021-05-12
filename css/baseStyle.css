@@ -488,6 +488,7 @@ header #mobile-search {
     display: block;
     cursor: pointer;
     font-size: 2rem;
+    font-weight: 500;
     padding: 1rem;
     transition: var(--transition-time);
 }
@@ -601,6 +602,8 @@ footer div {
     }
 }
 
+
+
 /* === Mobile Devices === */
 @media(max-width: 480px) {
     /* === Header === */
@@ -625,7 +628,66 @@ footer div {
         margin-right: 0;
     }
 
+    /* === Headers === */
+    h1 {
+        font-size: 3.2rem;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+    }
+
+    h3 {
+        font-size: 2.0rem;
+    }
+
+    h4 {
+        font-size: 1.6rem;
+    }
+
+    h5 {
+        font-size: 1.4rem;
+    }
+
+    /* === Paragraph === */
+    p {
+        font-size: 1.4rem;
+    }
+
+    .p-xlarge {
+        font-size: 2.0rem;
+    }
+
+    .p-large {
+        font-size: 1.8rem;
+    }
+
+    /* === label === */
+    label {
+        font-size: 1.8rem;
+    }
+
+    /* === Input === */
+    input {
+        font-size: 1.8rem;
+    }
+
+
+    /* === Utilities === */
+    .btn {
+        font-size: 2.2rem;
+    }
+
+    .btn-small {
+        font-size: 1.6rem;
+    }
+
+    .message {
+        font-size: 1.8rem;
+    }
 }
+
+
 
 /* === iPads and tablets === */
 @media(min-width: 481px) and (max-width: 768px) {
@@ -650,7 +712,71 @@ footer div {
     header .main-header a:first-child {
         margin-right: 0;
     }
+
+    /* === Headers === */
+    h1 {
+        font-size: 3.2rem;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+    }
+
+    h3 {
+        font-size: 2.0rem;
+    }
+
+    h4 {
+        font-size: 1.6rem;
+    }
+
+    h5 {
+        font-size: 1.4rem;
+    }
+
+    /* === Paragraph === */
+    p {
+        font-size: 1.4rem;
+    }
+
+    .p-xlarge {
+        font-size: 2.0rem;
+    }
+
+    .p-large {
+        font-size: 1.8rem;
+    }
+
+    /* === label === */
+    label {
+        font-size: 1.8rem;
+    }
+
+    /* === Input === */
+    input {
+        font-size: 1.8rem;
+    }
+
+
+    /* === Utilities === */
+    .btn {
+        font-size: 2.2rem;
+    }
+
+    .btn-small {
+        font-size: 1.6rem;
+    }
+
+    .message {
+        font-size: 1.8rem;
+    }
+
+    .vertical-product-view-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
 }
+
+
 
 /* === Small screens, laptops === */
 @media(min-width: 769px) and (max-width: 1024px) {
@@ -658,7 +784,71 @@ footer div {
     header #mobile-menu-btn {
         display: none;
     }
+    
+    /* === Headers === */
+    h1 {
+        font-size: 3.4rem;
+    }
+
+    h2 {
+        font-size: 2.6rem;
+    }
+
+    h3 {
+        font-size: 2.2rem;
+    }
+
+    h4 {
+        font-size: 1.8rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    /* === Paragraph === */
+    p {
+        font-size: 1.6rem;
+    }
+
+    .p-xlarge {
+        font-size: 2.2rem;
+    }
+
+    .p-large {
+        font-size: 2.0rem;
+    }
+
+    /* === label === */
+    label {
+        font-size: 2.0rem;
+    }
+
+    /* === Input === */
+    input {
+        font-size: 2.0rem;
+    }
+
+
+    /* === Utilities === */
+    .btn {
+        font-size: 2.4rem;
+    }
+
+    .btn-small {
+        font-size: 1.8rem;
+    }
+
+    .message {
+        font-size: 2.0rem;
+    }
+
+    .vertical-product-view-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
 }
+
+
 
 /* === Desktops, large screens === */
 @media(min-width: 1025px) and (max-width: 1200px) {
@@ -667,6 +857,8 @@ footer div {
         display: none;
     }
 }
+
+
 
 /* === Extra large screens, TV === */
 @media(min-width: 1201px) {
