@@ -1,0 +1,18 @@
+mobile devices:
+  - start: 320
+  - end: 480
+
+iPads and tablets:
+  - start: 481
+  - end: 768
+
+Small screens, laptops:
+  - start: 769
+  - end: 1024
+
+Desktops, large screens:
+  - start: 1025
+  - end: 1200
+
+  Extra large screens, TV:
+  - start: 1201

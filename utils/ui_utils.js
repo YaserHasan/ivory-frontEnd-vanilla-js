@@ -18,6 +18,18 @@ class UiUtils {
             `
         }
 
+        function buildInfoLinks(isMobile) {
+            if (!isMobile)
+                return `
+                    <a href="#"><h5>about Ivory</h5></a>
+                    <a href="#"><h5>contact us</h5></a>
+                `
+            return `
+                <li><a href="#">about Ivory</a></li>
+                <li><a href="#">contact us</a></li>
+            `        
+        }
+
         function buildCartHREF() {
             if (isLoggedIn)
                 return FormatUtils.getRelativePath('pages/cart.html');
@@ -27,8 +39,9 @@ class UiUtils {
         const header = document.createElement('header');
         header.innerHTML = `
             <div class="container topHeader">
-                <a href="#"><h5>about Ivory</h5></a>
-                <a href="#"><h5>contact us</h5></a>
+                <ul>
+                    ${buildInfoLinks()}
+                </ul>
             </div>
             <div class="divider"></div>
 
@@ -37,7 +50,7 @@ class UiUtils {
                     <img src="${FormatUtils.getRelativePath('assets/images/logo.png')}" alt="Logo">
                 </a>
 
-                <div class="input-with-icon">
+                <div id="desktop-search" class="input-with-icon">
                     <input type="text" placeholder="Search">
                     <div class="icon clickable">
                         <i class="fas fa-search"></i>
@@ -45,16 +58,34 @@ class UiUtils {
                 </div>
 
                 <nav>
-                    <a href="${buildCartHREF()}" class="action-link clickable"><i class="fas fa-shopping-cart"></i></a>
-                    <div class="drop-down-link">
+                    <a id="cart-link" href="${buildCartHREF()}" class="action-link clickable"><i class="fas fa-shopping-cart"></i></a>
+                    <div id="account-link" class="drop-down-link">
                         <a href="#" class="action-link clickable"><i class="fas fa-user"></i></a>
                         <ul class="drop-down-items">
                             ${buildAccountDropDown()}
                         </ul>
                     </div>
+                    <a id="mobile-menu-btn" href="#" class="action-link clickable"><i class="fas fa-bars"></i></a>
                 </nav>
             </div>
             <div class="divider"></div>
+
+            <div class="mobile-nav">
+                <div id="mobile-search" class="input-with-icon">
+                    <input type="text" placeholder="Search">
+                    <div class="icon clickable">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                <ul>
+                    ${
+                        !isLoggedIn ? '' : 
+                        `<li><a href="${FormatUtils.getRelativePath('pages/cart.html')}">My Cart</a></li>`
+                    }
+                    ${buildAccountDropDown()}
+                    ${buildInfoLinks(true)}
+                </ul>
+            </div>
         `;
         return header;
     }

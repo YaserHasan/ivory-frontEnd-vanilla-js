@@ -44,6 +44,10 @@ input, textarea, *:focus {
     outline: none;
 }
 
+ul {
+  list-style: none;
+}
+
 /* === Headers === */
 h1 {
     font-size: 3.6rem;
@@ -219,7 +223,7 @@ a:not(.btn):active {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: fadeIn 300ms;
+    animation: fade-in 300ms;
     transition: var(--transition-time);
     display: none;
 }
@@ -276,7 +280,7 @@ a:not(.btn):active {
     list-style: none;
     border-radius: 8px;
     display: none;
-    animation: fadeInFromTop 300ms;
+    animation: account-menu-animation 300ms;
 }
 
 .drop-down-items li {
@@ -306,7 +310,7 @@ a:not(.btn):active {
 ====================================
 */
 
-@keyframes fadeInFromTop {
+@keyframes account-menu-animation {
     0% {
         opacity: 0;
         transform: translateX(-50%) translateY(-10px);
@@ -317,7 +321,20 @@ a:not(.btn):active {
     }
 }
 
-@keyframes fadeIn {
+@keyframes mobile-nav-animation {
+    0% {
+        transform-origin: top;
+        opacity: 0;
+        transform: scaleY(0);
+    }
+    100% {
+        transform-origin: top;
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+@keyframes fade-in {
     0% {
         opacity: 0;
     }
@@ -370,6 +387,7 @@ header .main-header img {
 }
 
 header .main-header {
+    position: relative;
     height: 80px;
     padding: 1rem 0;
     display: flex;
@@ -380,7 +398,7 @@ header .main-header {
 /* === Input with icon === */
 header .input-with-icon {
     width: 100%;
-    margin: 0 1rem;
+    margin: 0 2rem;
     max-width: 500px;
 }
 
@@ -434,6 +452,52 @@ nav .action-link i {
 nav .action-link:first-child {
     margin-right: 4rem;
 }
+
+/* === mobile nav === */
+header #mobile-search {
+    max-width: 9999px;
+    margin: 0;
+    padding: 1rem;
+}
+
+#mobile-search input {
+    background-color: white;
+}
+
+.mobile-nav {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    padding: 1rem;
+    background-color: var(--divider-color);
+    text-align: center;
+    transition: var(--transition-time);
+    opacity: 0;
+    transform-origin: top;
+    transform: scaleY(0);
+}
+
+.mobile-nav.active {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+.mobile-nav a {
+    display: block;
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 1rem;
+    transition: var(--transition-time);
+}
+
+.mobile-nav a:active,
+.mobile-nav a:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
 
 /*
 ====================================
@@ -525,3 +589,89 @@ footer div {
 }
 
 
+/*
+====================================
+    Responsive
+====================================
+*/
+
+@media (max-width: 1140px) {
+    .container {
+        margin: 0 2rem;
+    }
+}
+
+/* === Mobile Devices === */
+@media(max-width: 480px) {
+    /* === Header === */
+    header {
+        margin-bottom: 2rem;
+    }
+
+    header .topHeader,
+    header .topHeader + .divider,
+    header #desktop-search,
+    header #cart-link,
+    header #account-link
+     {
+        display: none;
+    }
+
+    header .main-header {
+        height: 60px;
+    }
+
+    header .main-header a:first-child {
+        margin-right: 0;
+    }
+
+}
+
+/* === iPads and tablets === */
+@media(min-width: 481px) and (max-width: 768px) {
+    /* === Header === */
+    header {
+        margin-bottom: 2rem;
+    }
+
+    header .topHeader,
+    header .topHeader + .divider,
+    header #desktop-search,
+    header #cart-link,
+    header #account-link
+     {
+        display: none;
+    }
+
+    header .main-header {
+        height: 60px;
+    }
+
+    header .main-header a:first-child {
+        margin-right: 0;
+    }
+}
+
+/* === Small screens, laptops === */
+@media(min-width: 769px) and (max-width: 1024px) {
+    /* === Header === */
+    header #mobile-menu-btn {
+        display: none;
+    }
+}
+
+/* === Desktops, large screens === */
+@media(min-width: 1025px) and (max-width: 1200px) {
+    /* === Header === */
+    header #mobile-menu-btn {
+        display: none;
+    }
+}
+
+/* === Extra large screens, TV === */
+@media(min-width: 1201px) {
+    /* === Header === */
+    header #mobile-menu-btn {
+        display: none;
+    }
+}
