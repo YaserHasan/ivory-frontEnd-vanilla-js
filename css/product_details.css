@@ -9,11 +9,16 @@
     justify-content: start;
 }
 
-#product-overview-section #product-image {
+#product-image-container {
     flex: 4;
     margin-right: 2rem;
-    object-fit: scale-down;
     max-width: 40%;
+}
+
+#product-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
 }
 
 #text-info {
@@ -26,7 +31,7 @@
     color: var(--subtitle-color);
 }
 
-#text-info button {
+#text-info #add-to-cart-btn {
     margin-top: 5rem;
 }
 
@@ -58,4 +63,102 @@
 
 #product-specs-section #product-specs-table td:first-child {
     width: 40%;
+}
+
+
+/*
+====================================
+    Responsive
+====================================
+*/
+
+/* === Mobile Devices === */
+@media(max-width: 480px) {
+    #text-info #product-description {
+        margin: 2rem 0;
+    }
+
+    #text-info #add-to-cart-btn {
+        margin-top: 2rem;
+    }
+
+    #product-overview-section {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+    }
+
+    #product-image-container {
+        flex: 1;
+        max-width: 999999px;
+        margin: 0;
+        margin-bottom: 2rem;
+    }
+
+    #product-image {
+        max-height: 200px;
+    }
+    
+    #text-info {
+        flex: 1;
+    }
+}
+
+
+
+/* === iPads and tablets === */
+@media(min-width: 481px) and (max-width: 768px) {
+    #text-info #product-description {
+        margin: 2rem 0;
+    }
+
+    #text-info #add-to-cart-btn {
+        margin-top: 3rem;
+    }
+
+    #product-overview-section {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+    }
+
+    #product-image-container {
+        flex: 1;
+        max-width: 999999px;
+        margin: 0;
+        margin-bottom: 2rem;
+    }
+
+    #product-image {
+        max-height: 300px;
+    }
+    
+    #text-info {
+        flex: 1;
+    }
+}
+
+/* === Small screens, laptops === */
+@media(min-width: 769px) and (max-width: 1024px) {
+    #text-info #product-description {
+        margin: 2rem 0;
+    }
+
+    #text-info #add-to-cart-btn {
+        margin-top: 3rem;
+    }
+}
+
+/* === Desktops, large screens === */
+@media(min-width: 1025px) and (max-width: 1200px) {
+    
+}
+
+
+
+/* === Extra large screens, TV === */
+@media(min-width: 1201px) {
+    
 }

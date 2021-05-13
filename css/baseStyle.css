@@ -688,6 +688,10 @@ footer div {
         font-size: 1.8rem;
     }
 
+    .vertical-product-view-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
     /* === Loading View === */
     .loading-view lottie-player {
         width: 200px;
@@ -780,7 +784,7 @@ footer div {
     }
 
     .vertical-product-view-grid {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -852,7 +856,7 @@ footer div {
     }
 
     .vertical-product-view-grid {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 

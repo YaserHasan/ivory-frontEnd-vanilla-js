@@ -22,6 +22,7 @@ main h1 {
 .order-info-row {
     display: flex;
     justify-content: start;
+    flex-wrap: wrap;
 }
 
 .order-info-row h3:first-child {
@@ -35,4 +36,86 @@ main h1 {
 
 .align-left .order-info-row:first-child {
     margin-right: 3rem;
+}
+
+
+/*
+====================================
+    Responsive
+====================================
+*/
+
+/* === Mobile Devices === */
+@media(max-width: 480px) {
+    .order-info {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .align-left {
+        flex-direction: column;
+        justify-content: start;
+        align-items: flex-start;
+    }
+
+    .align-left .order-info-row:first-child {
+        margin: 1rem 0;
+    }
+
+    .order {
+        padding: 1rem;
+    }
+}
+
+
+
+/* === iPads and tablets === */
+@media(min-width: 481px) and (max-width: 768px) {
+    .order-info {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .align-left {
+        flex-direction: column;
+        justify-content: start;
+        align-items: flex-start;
+    }
+
+    .align-left .order-info-row:first-child {
+        margin: 1rem 0;
+    }
+}
+
+/* === Small screens, laptops === */
+@media(min-width: 769px) and (max-width: 1024px) {
+    .order-info {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .align-left {
+        flex-direction: column;
+        justify-content: start;
+        align-items: flex-start;
+    }
+
+    .align-left .order-info-row:first-child {
+        margin: 1rem 0;
+    }
+}
+
+/* === Desktops, large screens === */
+@media(min-width: 1025px) and (max-width: 1200px) {
+    
+}
+
+
+
+/* === Extra large screens, TV === */
+@media(min-width: 1201px) {
+    
 }

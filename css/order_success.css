@@ -5,13 +5,14 @@ main {
     align-items: center;
     flex-direction: column;
     margin: auto;
-    width: 500px;
+    text-align: center;
+    max-width: 500px;
     min-height: var(--free-space-size);
 }
 
 img {
-    width: 150px;
-    height: 150px;
+    max-width: 150px;
+    max-height: 150px;
 }
 
 h1 {
@@ -21,4 +22,45 @@ h1 {
 main button {
     margin-top: 3rem;
     max-width: 330px !important;
+}
+
+/*
+====================================
+    Responsive
+====================================
+*/
+
+/* === Mobile Devices === */
+@media(max-width: 480px) {
+    img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+}
+
+
+
+/* === iPads and tablets === */
+@media(min-width: 481px) and (max-width: 768px) {
+    img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+}
+
+/* === Small screens, laptops === */
+@media(min-width: 769px) and (max-width: 1024px) {
+    
+}
+
+/* === Desktops, large screens === */
+@media(min-width: 1025px) and (max-width: 1200px) {
+    
+}
+
+
+
+/* === Extra large screens, TV === */
+@media(min-width: 1201px) {
+    
 }

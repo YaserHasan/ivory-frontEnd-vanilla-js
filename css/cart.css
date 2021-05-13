@@ -116,3 +116,101 @@ main {
 #checkout-btn {
     margin-top: 2rem;
 }
+
+
+/*
+====================================
+    Responsive
+====================================
+*/
+
+/* === Mobile Devices === */
+@media(max-width: 480px) {
+    #flex-container {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+ 
+    #cart-products-section {
+         flex: 1;
+     }
+ 
+     #order-info-section {
+         flex: 1;
+     }
+ 
+     #order-info-section {
+         width: 100%;
+     }
+ 
+     #order-info-card {
+         margin: 0;
+         width: 100%;
+     }
+ 
+     .cart-product-quantity-action::after {
+         font-size: 1.4rem;
+     }
+ 
+     .cart-product-remove-btn {
+         width: 40px;
+         height: 40px;
+         border-radius: 10px;
+     }
+ 
+     .cart-product-remove-btn::after {
+         font-size: 2.4rem;
+     }
+}
+
+
+
+/* === iPads and tablets === */
+@media(min-width: 481px) and (max-width: 768px) {
+   #flex-container {
+       flex-direction: column;
+       justify-content: flex-start;
+       align-items: center;
+   }
+
+   #cart-products-section {
+        flex: 1;
+    }
+
+    #order-info-section {
+        flex: 1;
+    }
+
+    #order-info-section {
+        width: 100%;
+    }
+
+    #order-info-card {
+        margin: 0;
+        width: 100%;
+    }
+
+    .cart-product-quantity-action::after {
+        font-size: 1.4rem;
+    }
+
+    
+}
+
+/* === Small screens, laptops === */
+@media(min-width: 769px) and (max-width: 1024px) {
+
+}
+
+/* === Desktops, large screens === */
+@media(min-width: 1025px) and (max-width: 1200px) {
+    
+}
+
+
+
+/* === Extra large screens, TV === */
+@media(min-width: 1201px) {
+    
+}

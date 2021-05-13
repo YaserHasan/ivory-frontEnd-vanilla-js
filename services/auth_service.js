@@ -59,15 +59,15 @@ class AuthService {
         if (!(accessToken || refreshToken))
             return sessionStorage.setItem('authorized', 'false');
         
-        const isValidAccessToken = await this.#checkAccessToken(accessToken);
+        const isValidAccessToken = await this.checkAccessToken(accessToken);
         if (isValidAccessToken)
             return sessionStorage.setItem('authorized', 'true');
 
-        const isTokenRefreshed = await this.#refreshAccessToken(refreshToken);
+        const isTokenRefreshed = await this.refreshAccessToken(refreshToken);
         return sessionStorage.setItem('authorized', isTokenRefreshed.toString());
     }
 
-    static async #checkAccessToken(accessToken) {
+    static async checkAccessToken(accessToken) {
         const url = `${API_BASE_URL}/api/auth/checkAuth`;
         const response = await fetch(url, {
             method: 'GET',
@@ -76,7 +76,7 @@ class AuthService {
         return response.status == 204;
     }
 
-    static async #refreshAccessToken(refreshToken) {
+    static async refreshAccessToken(refreshToken) {
         const url = `${API_BASE_URL}/api/auth/refreshToken`;
         const response = await fetch(url, {
             method: 'POST',

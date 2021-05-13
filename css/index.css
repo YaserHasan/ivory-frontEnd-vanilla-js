@@ -62,3 +62,44 @@
 #most-popular-products-section h1 {
     margin-bottom: 2rem;
 }
+
+/*
+====================================
+    Responsive
+====================================
+*/
+
+/* === Mobile Devices === */
+@media(max-width: 480px) {
+    #categories-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+
+/* === iPads and tablets === */
+@media(min-width: 481px) and (max-width: 768px) {
+    #categories-section {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* === Small screens, laptops === */
+@media(min-width: 769px) and (max-width: 1024px) {
+    #categories-section {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* === Desktops, large screens === */
+@media(min-width: 1025px) and (max-width: 1200px) {
+    
+}
+
+
+
+/* === Extra large screens, TV === */
+@media(min-width: 1201px) {
+    
+}
